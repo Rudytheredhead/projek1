@@ -5,16 +5,19 @@ test = 0
 
                  
 def tasowanie():
-
-    deckcopy = odrzucone
+    print("test zrzucanie")
+    deckcopy = odrzucone.copy()
     odrzucone.clear()
-    dlugosc = len(deckcopy)
     t.clear()
-    for i in range(dlugosc):
+    for i in range(len(deckcopy)):
         t.append(i+1)
     random.shuffle(t)
+    print(t,deckcopy)
+
+
+
 def dobieraniereki():
-    
+    print("len =", len(deckcopy))
     if len(deckcopy)<5:
         
         for i in range(len(deck)):
@@ -313,7 +316,7 @@ for _ in range(2):
     
     
     akcja = 1
-    pieniedz = 0
+    pieniadz = 0
     zakup= 1
     
     dod = []
@@ -328,7 +331,9 @@ for _ in range(2):
     pieniadz = dod[1]
     zakup = dod[2]
     zrzucanie()
-    dobieraniereki()
+    print(deckcopy)
+    
+    
   
 
 print("koniec ",reka)
