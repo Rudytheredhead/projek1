@@ -1,4 +1,5 @@
-﻿import pygame
+import pygame
+import time
 class karta:
     def __init__(self,x,y,wys,szer):
         self.kwadrat = pygame.rect.Rect(x,y,szer,wys)
@@ -9,13 +10,18 @@ def ruchcheck(nazwa,sy):
     print("test czy" , str(nazwa))
     mouse_position = pygame.mouse.get_pos() 
     if nazwa.kwadrat.collidepoint(mouse_position):
+        if event.type == pygame.MOUSEBUTTONUP:
+            print("click")
+            time.sleep(1)
         if sy>1000-szer-50:
             print("test if")
             sy-=1
+            
     else:
         print("test else")
         if sy < 1000-szer:
             sy+=1
+    
     return sy
 szer = 200
 wys = 150
@@ -32,17 +38,35 @@ run = True
 checkb =0
 y=1000-szer
 yb = 1000-szer
+yc =1000-szer
+yd= 1000-szer
+ye=1000-szer
 while run:
     okno.fill((0,0,0))
-    a= karta(0,y,szer,wys)
-    b = karta(300,yb,szer,wys)
+    a= karta(20,y,szer,wys)
+    b = karta(210,yb,szer,wys)
+    c = karta(400,yc,szer,wys)
+    d = karta(580,yd,szer,wys)
+    e = karta(780,ye,szer,wys)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
     pygame.draw.rect(okno, RED, a.kwadrat)
     pygame.draw.rect(okno,RED,b.kwadrat)
+    pygame.draw.rect(okno,RED,c.kwadrat)
+    pygame.draw.rect(okno,RED,d.kwadrat)
+    pygame.draw.rect(okno,RED,e.kwadrat)
+
     pygame.display.flip()
+
     zmienna = ruchcheck(a,y)
     zmianna2 = ruchcheck(b,yb)
+    zmienna3 = ruchcheck(c,yc)
+    zmienna4 = ruchcheck(d,yd)
+    zmienna5 = ruchcheck(e,ye)
     yb = zmianna2
-    y= zmienna
+    y =  zmienna
+    yc = zmienna3
+    yd = zmienna4
+    ye = zmienna5
