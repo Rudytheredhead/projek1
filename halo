@@ -1,0 +1,33 @@
+import pygame
+okno = pygame.display.set_mode((1920,1000))
+pygame.display.set_caption("Moja gra")
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+okno.fill(BLACK)
+run =True
+class klocek:
+    def __init__(self, x, y, wys, szer):
+        self.kwadrat = pygame.rect.Rect(x, y, szer, wys)
+def podstawa():
+    pygame.draw.rect(okno, (139,69,19), (710,900,500,50))
+    pygame.draw.rect(okno,(139,69,19),(935,400,50,500))
+    pygame.display.flip()
+a = klocek(0,0,100,100)
+def rysuj(nazwa):
+    pygame.draw.rect(okno,(139,69,19),nazwa.kwadrat)
+def ruchcheck(nazwa, sy, ktora, jaka):
+    mouse_position = pygame.mouse.get_pos()
+    if nazwa.kwadrat.collidepoint(mouse_position):
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
+pygame.init()
+while run:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+    rysuj(a)
+    pygame.display.flip()
